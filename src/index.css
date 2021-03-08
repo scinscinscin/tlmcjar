@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	background-color: #1e1e1e;
+}
+
+.closed-div {
+	background-color: #252526;
+}
+
+.opened-div {
+	background-color: #323437;
+}
+
+.graytext {
+	color: #646669;
+}

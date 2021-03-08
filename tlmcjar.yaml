@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: tlmcjar
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: tlmcjar
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                app: tlmcjar
+        spec:
+            containers:
+                - image: docker.scinorandex.xyz/scinorandex/tlmcjar
+                  name: tlmcjar
+                  ports:
+                      - containerPort: 5000
+            imagePullSecrets:
+                - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: tlmcjar
+    labels:
+        app: tlmcjar
+spec:
+    type: LoadBalancer
+    externalTrafficPolicy: Local
+    ports:
+        - name: http
+          port: 5000
+          protocol: TCP
+          targetPort: 5000
+    selector:
+        app: tlmcjar
