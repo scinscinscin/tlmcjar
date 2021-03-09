@@ -1,7 +1,5 @@
 FROM node:15-alpine
 WORKDIR /app
-COPY package*.json ./
-COPY build/ ./
-RUN npm install -g serve
 COPY . .
+RUN npm install -g serve
 CMD [ "npm", "run", "production" ]

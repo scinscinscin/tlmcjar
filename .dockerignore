@@ -1,0 +1,11 @@
+node_modules/
+src/
+public/
+.git/
+yarn.lock
+tlmcjar.yaml
+tailwind.config.js
+Dockerfile
+.gitignore
+.dockerignore
+craco.config.js
